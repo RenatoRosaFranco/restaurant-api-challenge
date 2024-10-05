@@ -1,0 +1,51 @@
+PreCommit:
+  Rubocop:
+    enabled: false
+    description: 'Running rubocop to check Ruby code style'
+    command: ['bundle', 'exec', 'rubocop']
+    required_executable: 'rubocop'
+    problem_on_unmodified_line: ignore
+    on_warn: fail
+    flags: ['--parallel']
+
+  RSpec:
+    enabled: false
+    description: 'Running RSpec tests'
+    command: ['bundle', 'exec', 'rspec', 'spec']
+    required_executable: 'rspec'
+    on_warn: fail
+    parallel: true
+
+  RailsBestPractices:
+    enabled: false
+    description: 'Running rails_best_practices to check Rails conventions'
+    command: ['bundle', 'exec', 'rails_best_practices', '.']
+    required_executable: 'rails_best_practices'
+    on_warn: fail
+
+  RubyCritic:
+    enabled: false
+    description: 'Running RubyCritic to analyze code quality'
+    command: ['bundle', 'exec', 'rubycritic', '.']
+    required_executable: 'rubycritic'
+    on_warn: fail
+    on_fail: fail
+
+  Brakeman:
+    enabled: true
+    description: 'Running Brakeman to check for security vulnerabilities'
+    command: ['bundle', 'exec', 'brakeman']
+    required_executable: 'brakeman'
+    on_warn: fail
+    on_fail: fail
+
+  BranchName:
+    enabled: true
+    description: "Ensure branch name follows GitFlow naming convention"
+    pattern: '^(feature|bugfix|hotfix|release|support|develop|master)\/[a-z0-9_\-]+$'
+    error_message: 'Branch name must follow GitFlow naming conventions (e.g., feature/my-feature)'
+    exclude:
+      - 'main'
+      - 'master'
+      - 'development'
+    on_warn: fail
