@@ -21,6 +21,9 @@ gem "jbuilder"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
+gem 'interactor'
+gem 'active_model_serializers'
+gem 'fast_jsonapi'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -43,6 +46,22 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  gem 'factory_bot_rails'
+  gem 'ffaker'
+  gem 'rubocop'
+  gem 'rubycritic'
+  gem 'shoulda'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
+  gem 'rails_best_practices'
+  gem 'annotate'
+  gem 'super_awesome_print'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'rspec-core'
+  gem 'rspec-rails'
+  gem 'database_cleaner-active_record'
+  gem 'overcommit'
 end
 
 group :development do
